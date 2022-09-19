@@ -11,7 +11,7 @@ This game provides opportunity to learn more about the never ending knowledge of
 
 In this blog post, I'll share hints & descriptions of the challenges for which I have posted the solutions on github that you can find [here](https://github.com/abdulsamijay/ethernaut).
 
-### :memo: Pre-requisite
+### Pre-requisite
 I have solved these challenges in [foundry](https://book.getfoundry.sh/), a smart contract development framework. You can use also [hardhat](https://hardhat.org/). Before you start, you will need basic understanding of <br>
 1. [Solidity](https://docs.soliditylang.org/en/v0.8.17/) language
 2. Basics of EVM execution flow
@@ -21,7 +21,7 @@ I have solved these challenges in [foundry](https://book.getfoundry.sh/), a smar
 ### 1. Fallback
 #### Description
 In this challenge the user is provided with a contract called `Fallback.sol`. The goal of this challenge is to become the onwer of the contract & drain all the funds (Eth).
-#### :bulb: Hint
+#### Hint
 Call the `contribute()` function by sending it some eth & then call `withdraw()` method to drain all funds!
 This challenge requires user to be familiar with the following concepts.
 
@@ -34,7 +34,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 #### Description
 In this challenge the user is provided with a contract called `Fallout`. The goal of this challenge is to become the onwer of the contract & drain all the funds (Eth).
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 1. Fallback functions & when they are triggered.
 2. Ownable & access control functionality.
@@ -45,7 +45,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 ### 3. Coin Flip 
 #### Description
 In this challenge the user is provided with a contract called `Coinflip.sol`. The goal of this challenge is win 10 times consecutively by calling the `flip()` function of the contract.
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 1. Pseudo-Randomness in computer systems.
 
@@ -55,7 +55,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 #### Description
 In this challenge the user is provided with a contract called `Telephone.sol`. The goal of this challenge claim the ownership of the contract.
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 1. Difference between `tx.origin` & `msg.sender`.
 
@@ -71,7 +71,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 #### Description
 In this challenge the user is provided with a contract called `Delegate.sol`. The goal of this challenge claim the ownership of the contract.
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 
 1. Solidity delegtecall function & storage layout.
@@ -83,7 +83,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 #### Description
 In this challenge the user is provided with a contract called `Force.sol`. The goal of this challenge to send ether to the contract that has no ability to receive ether.
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 
 1. Solidity `selfdestruct()` function from the docs!
@@ -94,7 +94,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 #### Description
 In this challenge the user is provided with a contract called `Vault.sol`. The goal of this challenge to unlock the vault.
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 1. Storage or slot packing technique while contract creation.
 
@@ -106,7 +106,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 In this challenge the user is provided with a contract called `King.sol`. The goal of this challenge to become the king in such a way that no one should be able to overpay & become the king.
 
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 1. Solidity fallback() funtion.
 
@@ -118,7 +118,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 In this challenge the user is provided with a contract called `Reentrance.sol`. The goal of this challenge to drain the contract.
 
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 
 1. Checks-effects-interaction pattern
@@ -136,7 +136,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 #### Description
 In this challenge the user is provided with a contract called `Privacy.sol`. The goal of this challenge is to set the variable locked to false.
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 
 1. Storage or slot packing technique while contract creation.
@@ -149,7 +149,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 In this challenge the user is provided with a contract called `GatekeeperOne.sol`. The goal of this challenge is to set the entrant variable to `tx.origin`.
 
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 
 1. Difference between `tx.origin` & `msg.sender`.
@@ -162,7 +162,7 @@ Check out solution & walkthrough [here]()!
 #### Description
 In this challenge the user is provided with a contract called `GatekeeperTwo.sol`. The goal of this challenge is to set the entrant variable to `tx.origin`.
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 
 1. Difference between `tx.origin` & `msg.sender`.
@@ -176,7 +176,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 #### Description
 In this challenge the user is provided with a contract called `Naught.sol`. The goal of this challenge is to transfer the tokens before the timelock period.
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 1. Basic working of ERC20 tokens.
 2. Understanding of `approve()` & `transferFrom()` functions.
@@ -189,7 +189,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 #### Description
 In this challenge the user is provided with a contract called `Preservation.sol`. The goal of this challenge is to claim the ownership of the contract.
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 
 1. How `delegatecall` & `storage layout` works in solidity smart contract.
@@ -201,7 +201,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 #### Description
 In this challenge the user is provided with a contract called `Recovery.sol`. The goal of this challenge is to claim the ownership of the contract.
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 
 1. How a smart contract address is predicted or computed with `create()` & `create2()`.
@@ -214,7 +214,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 #### Description
 In this challenge the user is provided with a contract called `Magicnumber.sol`. The goal of this challenge is deploy a contract that returns '42' but only 10 opcodes are allowed no more!.
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 
 1. Compiler bytecode & opcodes. For reference visit, https://evm.codes
@@ -229,7 +229,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 #### Description
 In this challenge the user is provided with a contract called `AlienCodex.sol`. The goal of this challenge is to claim the ownership of the contract.
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 1. Solidity Integer overflow/underflow.
 2. Solidity storage layout.
@@ -241,7 +241,7 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 #### Description
 In this challenge the user is provided with a contract called `Denial.sol`. The goal of this challenge is to place a mechnism such that the owner cannot withdraw ether from contract even though it has it.
 
-#### :bulb: Hint
+#### Hint
 This challenge requires user to be familiar with the following concepts.
 1. Solidity fallback() funtion.
 
@@ -267,3 +267,6 @@ Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernau
 In this challenge the user is provided with a contract called DexTwo.sol. The goal of this challenge is to drain token0 & token1 from the dex.
 
 Check out solution & walkthrough [here](https://github.com/abdulsamijay/ethernaut/tree/master/src/challenge-23-DexTwo)!
+
+### Conslusion
+That's all folks. I hope this write-up helped you. See you next time.
