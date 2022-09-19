@@ -1,14 +1,14 @@
 ---
 title: "A Roller-Coaster Ride to Open-Source Contribution in Ethereum 2.0"
 date: 2022-01-24 10:00
-categories: [open-source]
+categories: [open-source, contribution]
 tags: [open-source, eth 2.0, client, ethereum]
 
 ---
 
 ### Introduction
 I want to share our roller-coaster ride exploring the Ethereum client called [Geth](https://xord.com/research/zooming-out-of-geth/), written in Golang. At Novon, we have a dedicated and passionate team of developers & researchers that aims towards helping & contributing to existing blockchain infrastructures. We will be focusing on the development division in Novon, which is actively looking & working on layer 0 to suggest improvements & implement exciting features for the blockchain community to use. <br>
-We made contribution on [Eth 2.0](https://ethereum.org/en/history/) client [Lodestar](https://github.com/ChainSafe/lodestar). [Check this out!](https://github.com/ChainSafe/lodestar/pull/3502)
+We made contribution on [Eth 2.0](https://ethereum.org/en/history/) client [Lodestar](https://github.com/ChainSafe/lodestar). <br>[Check it out!](https://github.com/ChainSafe/lodestar/pull/3502)
 
 ### How did we get Started?
 Being in the blockchain space & building exciting DApps over it for quite some time, we realized there is more to the blockchain. Having experience in the application layer, we wanted something more challenging to throw us out of our comfort zone. So we decided to move to the layer below it, layer 0. 
