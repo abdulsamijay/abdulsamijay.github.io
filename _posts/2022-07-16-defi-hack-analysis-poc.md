@@ -24,7 +24,7 @@ I would aslo like to cateforize some hacks:
 [`Here is the repository for exploit re-creation`](https://github.com/abdulsamijay/Defi-Hack-Analysis-POC). You can follow the insturctions for running the exploits on forked enviroment.
 
 ### Defi Exploit POCs
-### The infamous DAOHack - The Classic Re-entrancy
+### The infamous DAOHack - The Classic Re-entrancy (2016)
 This was a classic re-entrancy attack which led to the fork of `Ethereum` (ETH) & `Ethereum-classic` (ETC) chain split. There was a debate on whether to fork the chain or not back in the day. This was I beleive the first attack in which the attacker managed to withdraw `3,800,000` (3.8 Million) Ether!
 
 The core of the attak was:
@@ -35,7 +35,7 @@ The core of the attak was:
 
 See the [POC here](https://github.com/abdulsamijay/Defi-Hack-Analysis-POC/tree/master/src/The-Dao-hack).
 
-### Beanstalk Finanace Hack
+### Beanstalk Finanace Hack (April, 2022)
 Beanstalk protocol got hacked for around $74M through exploiting the governance mechanism & stealing all the BEANS & Curve LP tokens stored in the Beanstalk protocol. It is a bit complex hack, lets break it down step by step.
 
 - [Hack Transaction](https://etherscan.io/tx/0xcd314668aaa9bbfebaf1a0bd2b6553d01dd58899c508d4729fa7311dc5d33ad7)
@@ -82,7 +82,7 @@ The hacker used tornado cash & split the ~24k Eth into chunks of 1, 10 & 100 Eth
 
 See the [POC here](https://github.com/abdulsamijay/Beanstalk-Exploit-POC)
 
-### Rari-Capital Fuse Hack
+### Rari-Capital Fuse Hack (April, 2022)
 Rari capital got hacked for around $79M through a classic re-entrancy attack. Rari is a fork of compound finance which had this bug fixed earlier. It is not the first time Rari has been a victim of a hack.
 
 #### Pre-requisite
@@ -109,14 +109,14 @@ There were 7 pools that were affected due to this exploit `(8，18，27，127，
 
 See the [Rari-Capital POC here](https://github.com/abdulsamijay/Rari-Capital-Exploit-POC)
 
-### Wintermute Multisig Hack
+### Wintermute Multisig Hack (June, 2022)
 This is attack that took place on `OPTIMISM` network. This POC continously creates proxy contracts to create wintermute multi-sig that had not been deployed to `optimism network` & only existed on ethereum. The attacker took advantage of this as the `OPTIMISM` team gad already sent around `20M OP` tokens to this contract which hacker took custody of.
 
 The attacker recursively generated addresses through the gnosis multisig until the address was generated allowing him to deploy contract at that particular address & retrieved the tokens.
 
 See the [Wintermute POC here](https://github.com/abdulsamijay/Defi-Hack-Analysis-POC/tree/master/src/Optimism-Wintermute).
 
-### XCarnival NFT Lending Protocol Hack
+### XCarnival NFT Lending Protocol Hack (June, 2022)
 A hack that took place on Ethereum Block `15028861`, where the hacker walked away with around `$3.8M` in ETH exploiting the XCarnival NFT Lending protocol.
 
 1. The attacker uses the `pledgeAndBorrow` function in the XNFT contract to use NFTs as collateral and borrow xToken.
@@ -127,7 +127,7 @@ A hack that took place on Ethereum Block `15028861`, where the hacker walked awa
 
 See the [XCarnival POC here](https://github.com/abdulsamijay/Defi-Hack-Analysis-POC/tree/master/src/XCarnival).
 
-### Pickle Finance Hack
+### Pickle Finance Hack (Nov, 2020)
 On 21st November 2021, Pickle finance was hacked, where an attacker was able to drain $19M DAI from the pDai jar. The attack exploited multiple inconsistencies & flaws in the logic of the pickle jar smart contract.
 
 #### Pre-Requisite:
@@ -157,7 +157,7 @@ The attacker deploys two new fake Jars.
 
 Here is the [Pickle Finance Hack POC](https://github.com/abdulsamijay/Defi-Hack-Analysis-POC/blob/master/src/pickle-finance)
 
-### Harvest Finance Hack
+### Harvest Finance Hack (October, 2020)
 Harvest finance got hacked for around `$34M` due to a flashloan attack which `manipulated the price` in the Curve pool to retrieve more USDT tokens than originally deposited USDT amount in fUSDT pool. This attack was also possible on other f-pools using the same set of steps described below. But the attacker chose not to continue. If the attack had continued, the attacker would have walked away with `~$400M` worth of assets.
 
 1. The attacker deploys a contract & pre-funds it with `10.69M` USDT & `11.435M` USDC 
@@ -172,7 +172,7 @@ The attacker repeatedly called steps 3-6 4 times to gain profit.
 See the [Harvest Finance Hack here](https://github.com/abdulsamijay/Defi-Hack-Analysis-POC/tree/master/src/harvest-finance)
 
 
-### Inverse finance Hack
+### Inverse finance Hack (June 2022)
 Inver finance was hit by the attcker in mid June 2022, and is the classic example of oracle manipulation. The attackers managed to steal ~6M worth of tokens.
 
 I have omitted the detailed steps for the eploit which I belive are easily understood by taking look at the code. As hervest finance attack was similar to it.
@@ -181,8 +181,10 @@ Check out the [Inverse Hack POC here](https://github.com/abdulsamijay/Defi-Hack-
 
 
 ### Honorable Mentions
-### The infamous 'Accidently killed it'
+### The infamous 'Accidently killed it' (July, 2017)
 A person was experimenting with the newly deployed wallet for parity. And this person accidently killed it be becomming the owner & calling `self-destruct` on the contract. Whether it was intentional or a mistake remains a mystery!
 Though this was not exactly a hack but it qualified in my honorable mentions list.
+
+Here is the github [issue](https://github.com/openethereum/parity-ethereum/issues/6995). 
 
 See the [TheParityKill POC here](https://github.com/abdulsamijay/Defi-Hack-Analysis-POC/tree/master/src/The-Praity-Kill)
