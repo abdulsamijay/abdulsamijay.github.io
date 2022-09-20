@@ -268,5 +268,12 @@ contract ExploitScript is Script {
 }
 ```
 
+### Solved after the CTF!
+There were few other challneges that I solved sadly after CTF ended. Will share a write-up on those too!
+1. Source code
+2. Trapdooor
+3. Trapdoooor
+4. Vanity
+
 ### Wrap up!
 This was the first ever CTF I participated in. It was a great experience & frustrating at the same time as I spent a a good amount of time simply looking the code for hours! Nevertheless, it was fun & we learned alot about security by breaking them.
