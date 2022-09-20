@@ -88,7 +88,7 @@ contract ContractTest is DSTest {
 ```
 Each of these properties will need to be tested separately. But, for the sake of simplicity we will be only looking at the transfer case. After writing the test case the program will run the function multiple times with different inputs trying ranges of values & likely to come up with the case you didn’t expect or assumed was correct. If the program passes the tests then we have more surety about a specific functionality to robust & error free, in this case, the transfer function. 
 
-![Fuzz run Screenshot](../assets/images/fuzz.png)
+![Fuzz run Screenshot](/assets/images/fuzz.png)
 
 As we can see the program ran multiple inputs & the test we wrote passed without any error. This was a very basic example of property-based testing through foundry. I intend to create a separate tutorial on using both foundry & echidna for smart contract fuzzing soon so stay tuned!
 
