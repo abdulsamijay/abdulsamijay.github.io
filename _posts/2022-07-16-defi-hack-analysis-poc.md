@@ -64,28 +64,17 @@ Beanstalk protocol got hacked for around $74M through exploiting the governance 
     - `60,562,844` BEANLUSD-f.
     - `100` BEAN minted to the exploit contract.
 10. Removes `874,663,982` CRV single liquidity to get `1,007,734,729` CRV tokens.
-
 11. Removes `60,562,844` BEANLUSD-f single liquidity to get `28,149,504` LUSD.
 12. Returns flashloan of `11,678,100` LUSD to Sushiswap.
-
 13. Returns flashloan of `32,197,543` BEAN to Uniswap V2.
-
 14. Exchanges `16,471,404` LUSD to get `16,184,690` CRV on LUSDCRV-f.
-
 15. Removes liquidity from `511,959,710` 3CRV Pool to get `522,487,380` USDC, `358,371,797` DAI, `156,732,232` USDT.
-
 16. Returns flashloan on aave for 350,315,000 DAI, 500,450,000 USDC & 150,135,000 USDT.
-
 17. Removes liquidity on `0.540716100968756904` Uniswap V2 to get `10,883` Eth & `32,511,085` BEAN.
-
 18. Donated `250,000` USDC to Ukraine Donation Wallet.
-
 19. Swap `15,443,059` DAI to `15,441,256` USDC on Uniswap V3.
-
 20. Swap `37,228,637` USDC for `11,822` Eth on Uniswap V3.
-
 21. Swap `6,597,232` USDT for `2,124` Eth on Uniswap V3.
-
 22. Leaving the attacker with over `24k Eth` ~ `$72M` in profit.
 
 #### THE EXIT STRATEGY
@@ -118,8 +107,6 @@ There were 7 pools that were affected due to this exploit `(8，18，27，127，
 6. The attacker repeats steps 1–4 until all borrowed amount is collected.
 7. The attacker applies the same strategy on 7 different pools & runs away with `~$79M` of profit.
 
-
-
 See the [Rari-Capital POC here](https://github.com/abdulsamijay/Rari-Capital-Exploit-POC)
 
 ### Wintermute Multisig Hack
@@ -133,13 +120,9 @@ See the [Wintermute POC here](https://github.com/abdulsamijay/Defi-Hack-Analysis
 A hack that took place on Ethereum Block `15028861`, where the hacker walked away with around `$3.8M` in ETH exploiting the XCarnival NFT Lending protocol.
 
 1. The attacker uses the `pledgeAndBorrow` function in the XNFT contract to use NFTs as collateral and borrow xToken.
-
 2. Then, a call is made using the `withdrawNFT` function in order to extract the pledged NFT. This function first checks to see if the order has been closed. If it hasn’t, it checks to see if the NFT hasn’t been withdrawn and the loan amount is 0. If none of these conditions are met, it then determines that the NFT has not been withdrawn and the order is still active (no debt). NFTs that are used for collateral can be withdrawn.
-
 3. The attack itself starts when the attacker uses the order to directly call the `borrow` function in the xToken contract.
-
 4. Since the contract assumes the NFT has been already returned allow the attcker to withdraw more funds.
-
 5. The essence of this vulnerability is that there is no check while borrowing to see whether the NFT in the order has been withdrawn, allowing an attacker to borrow without repayment after removing the NFT for their own benefit. 
 
 See the [XCarnival POC here](https://github.com/abdulsamijay/Defi-Hack-Analysis-POC/tree/master/src/XCarnival).
